@@ -25,7 +25,7 @@ Conversion notes:
 # **Installation of ClidataGIS Area Control**
 
 
-## 2.18.11.15
+
 
 Clidata GIS installation progress install these programs:
 
