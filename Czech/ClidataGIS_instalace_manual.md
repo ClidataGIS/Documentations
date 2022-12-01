@@ -1,27 +1,30 @@
+***
+<div align='center'>
+Instalace Clidata GIS
+</div>
 
-# Instalace Clidata GIS
+***
 
 
-## 01.12.2022
+## Úvod
 
-
-# Úvod
-
-Ze změnou datové struktury aplikace Clidata (duben 2017) bylo potřeba tyto změny provést i v klientských aplikacích 
-jako např. Clidata GIS. Jelikož je to velká změna bylo potřeba před samotnou úpravou Clidata GIS aplikací 
-provést celoústavní sjednocení verzí ClidataGIS. Od této chvíle se budou aktualizovat pouze verze, které vyjdou 
-z této instalace. 
+Ze změnou datové struktury aplikace Clidata (duben 2017) bylo potřeba tyto změny provést i v klientských aplikacích jako např. Clidata GIS. Jelikož je to velká změna bylo potřeba před samotnou úpravou Clidata GIS aplikací provést celoústavní sjednocení verzí ClidataGIS. Od této chvíle se budou aktualizovat pouze verze, které vyjdou 
+z této instalace.  
 Hlavní jsou tyto změny:
 1. Plošná kontrola a MapViewer nyní budou podporovat pouze aktuální verzi programu ESRI ArcGIS Explorer (verze 3400). Starší a aktuálně používaná verze ESRI ArcGIS Explorer 1750 již nebude podporována.
 2. Prostorové analýzy, budou podporovat pouze ArcGIS 10.6 a novější, starší verze ArcGIS 10.1,10.2,10.3,10.4,10.5 již nebudou podporované.
 
-V tomto návodě popíši jednak instalaci na čisté PC (bez předchozí verze ClidataGIS) a jednak 
-na již existující instalaci ClidataGIS
+V tomto návodě popíši jednak instalaci na čisté PC (bez předchozí verze ClidataGIS) a jednak na již existující instalaci ClidataGIS
+  
+***
+## Instalační soubory
+  
 
+Uložiště instalačních souboru je na této adrese:  
+[http://192.168.90.66/kwapplications/GIS/Apps/ZIP/](http://192.168.90.66/kwapplications/GIS/Apps/ZIP/)  
+kde jsou k dispozici tyto instalační balíčky:  
 
-# Instalační soubory
-
-Uložiště instalačních souboru je na této adrese:  [http://192.168.90.66/kwapplications/GIS/Apps/ZIP/](http://192.168.90.66/kwapplications/GIS/Apps/ZIP/) kde jsou k dispozici tyto instalační balíčky [ArcGIS10.6.1.exe](http://192.168.90.66/kwapplications/GIS/Apps/ZIP/ESRI/ArcGIS_Desktop_106_161544.exe)   - instalační balík obsahující instalaci ArcGIS 10.6.1
+[ArcGIS10.6.1.exe](http://192.168.90.66/kwapplications/GIS/Apps/ZIP/ESRI/ArcGIS_Desktop_106_161544.exe)   - instalační balík obsahující instalaci ArcGIS 10.6.1
 
 [ArcGIS Explorer 3400.zip](http://192.168.90.66/kwapplications/GIS/Apps/ZIP/ESRI/ArcGISExplorer3400.zip)- instalační balík pro ArcGIS Explorer 3400 a ArcGIS Explorer Fonts
 
@@ -37,58 +40,47 @@ na nové PC
 
 **INSTALL_DIR** je instalační adresář, kde jsou všechny staženy a odzipované dílčí aplikace
 
+***
+## Instalace na  PC bez předchozí instalace Clidata GIS
 
-# Instalace na  PC bez předchozí instalace Clidata GIS
+Novou instalaci ClidataGIS na PC bez předchozí instalace je dle tohoto postupu:  
 
- \
-Novou instalaci ClidataGIS na PC bez předchozí instalace je dle tohoto postupu: \
 Instalace aplikací doporučuji přes příkazový řádek (cmd.exe) spustěný jako administrátor.
+Jelikož se během instalace budou zapisovat některé údaje do registru OS je potřeba instalaci dělat pod daným uživatelem(ideálně uživatel s dočasnými administrátorskými právy)  
 
-Jelikož se během instalace budou zapisovat některé údaje do registru OS je potřeba instalaci dělat pod daným uživatelem(ideálně uživatel s dočasnými administrátorskými právy)
+**PK,MW** - potřeba pro aplikaci plošná kontrola (**PK**) a pro MapViewer (**MW**)  
+**SA** - potřeba pro aplikaci prostorové analýzy pod ArcGIS
 
-PK,MW - potřeba pro aplikaci plošná kontrola (PK) a pro MapViewer (MW)
+1. Instalace Oracle clienta **PK,MW,SA** INSTALL_DIR\Oracle\install_oracleClient.cmd 
+2. Instalace DotNet 4.5 pokud již není nainstalovavý v systému  **_PK,MW,SA INSTALL_DIR\dotNet45.exe**
+3. Instalace ArcGIS 10.6.1 **SA** pokud tato verze je již instalovaná na PC tak přeskočit tento krok
+**INSTALL_DIR/ArcGIS_Desktop_106_161544.exe**
+4. Instalace ArcGIS Explorer 3400 s volbou Anyone who uses this computer (all Users)  !!!!! **PK,MW**    
+**INSTALL_DIR\ESRI/ArcGIS Explorer 3400\Setup.exe**
+5. Instalace ArcGIS Explorer Fonts  
+6. **INSTALL_DIR\ESRI/ArcGISExplorerFonts\Setup.exe**
+7. Instalace aplikace ClidataGIS  **PK,MW,SA**  
+**Odzipování CLIDATA_GIS_LAST.zip do C:\ClidataGIS**
+8. Vytvoření zástupce na ploše s cestou  
+   **C:\ClidataGIS\ClidataGIS_Starter.exe CHMU.xml**
+9.  Registrace ClidataGIS do ArcMap  **SA**  
+    
+    C:\ClidataGIS\BIN\Registry_ClidataGIS10.6.cmd_ pro verzi 10.6  
+    C:\ClidataGIS\BIN\Registry_ClidataGIS10.7.cmd_ pro verzi 10.7 
+    C:\ClidataGIS\BIN\Registry_ClidataGIS10.8.cmd_ pro verzi 10.8  
+***
+## Instalace na PC s předchozí verzi Clidata GIS
 
-SA - potřeba pro aplikaci prostorové analýzy pod ArcGIS
-
-
-
-1. Instalace Oracle clienta  **_PK,MW,SA_** 	_INSTALL_DIR\Oracle\install_oracleClient.cmd _
-2. Instalace DotNet 4.5 pokud již není nainstalovavý v systému  **_PK,MW,SAINSTALL_DIR\dotNet45.exe_**
-3. Instalace ArcGIS 10.6.1 **_SA _**    pokud tato verze je již instalovaná na PC tak přeskočit tento krok
-
-           _ INSTALL_DIR/ArcGIS_Desktop_106_161544.exe_
-
-4. Instalace ArcGIS Explorer 3400 s volbou Anyone who uses this computer (all Users)  !!!!! **_PK,MW_** \
-   	_INSTALL_DIR\ESRI/ArcGIS Explorer 3400\Setup.exe_
-5. Instalace ArcGIS Explorer Fonts \
-   	_ INSTALL_DIR\ESRI/ArcGISExplorerFonts\Setup.exe_
-6. Instalace aplikace ClidataGIS  **_PK,MW,SA_**
-
-    **_Odzipování CLIDATA_GIS_LAST.zip do C:\ClidataGIS\    _**
-
-7. Vytvoření zástupce na ploše s cestou C:\ClidataGIS\ClidataGIS_Starter.exe CHMU.xml
-8. Registrace ClidataGIS do ArcMap  **_SA_**
-
-_C: \ClidataGIS\BIN\Registry_ClidataGIS10.6.cmd_ pro verzi 10.6
-_C: \ClidataGIS\BIN\Registry_ClidataGIS10.7.cmd_ pro verzi 10.7
-_C: \ClidataGIS\BIN\Registry_ClidataGIS10.8.cmd_ pro verzi 10.8
-
-
-# Instalace na PC s předchozí verzi Clidata GIS
-
-Pokud na PC již existovala předchozí verze ClidataGIS je potřeba před samotnou instalaci: \
- \
-1. Odinstalovat ArcGIS 10.3 a nižší verze \
-2. Odinstalovat ArcGIS Explorer  \
+Pokud na PC již existovala předchozí verze ClidataGIS je potřeba před samotnou instalaci: 
+1. Odinstalovat ArcGIS 10.3 a nižší verze
+2. Odinstalovat ArcGIS Explorer
 4. Smazat složku ClidataGIS10
-
 5. Restart PC
+6. Pokračovat v instalaci jako ve verzi bez předchozí instalace ClidataGIS
 
-6. Pokračovat v instalaci jako ve verzi bez předchozí instalace ClidataGIS \
+***
 
-
-
-# Řešení problému
+## Řešení problému
 
 **Nedaří se se spustit ArcGIS Explorer z menu ClidataGIS a máte 32bit operační systém?**
 
@@ -108,5 +100,5 @@ Windows 10. Install .NET Framework 3.5 error 0x800F0954
 1. V registrech ve složce HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU nastavit “UseWUServer” na 0 	
 2. Restart 	počítače
 3. Instalace .NET Framework 3.5 
-4. V registrech ve složce HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU nastavit zpět hodnotu “UseWUServer” na 1	
+4. V registrech ve složce **KEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU** nastavit zpět hodnotu **UseWUServer** na 1	
 5. Restartovat počítač 	
